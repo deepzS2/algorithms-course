@@ -11,6 +11,20 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let turtle = list.getFirst();
+  let rabbit = list.getFirst();
+
+  for (let index = 0; index < n; index++) {
+    rabbit = rabbit.next;
+  }
+
+  while (rabbit.next) {
+    turtle = turtle.next;
+    rabbit = rabbit.next;
+  }
+
+  return turtle;
+}
 
 module.exports = fromLast;
